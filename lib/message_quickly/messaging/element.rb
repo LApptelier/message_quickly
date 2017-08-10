@@ -12,15 +12,15 @@ module MessageQuickly
       def build_button(button_type)
         case button_type
           when :web_url
-            button = WebUrlButton.new
+            button = MessageQuickly::Messaging::WebUrlButton.new
           when :postback
-            button = PostbackButton.new
-          when :account_link
-            button = AccountLinkButton.new
+            button = MessageQuickly::Messaging::PostbackButton.new
           when :phone_number
-            button = PhoneButton.new
+            button = MessageQuickly::Messaging::PhoneButton.new
           when :element_share
-            button = ElementShareButton.new
+            button = MessageQuickly::Messaging::ElementShareButton.new
+          when :account_link
+            button = MessageQuickly::Messaging::AccountLinkButton.new
         end
         buttons << button.tap { |button| yield button }
       end
