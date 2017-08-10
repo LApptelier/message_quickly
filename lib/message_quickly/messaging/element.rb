@@ -11,22 +11,26 @@ module MessageQuickly
 
       def build_button(button_type)
         case button_type
-        when :web_url
-          button = WebUrlButton.new
-        when :postback
-          button = PostbackButton.new
-        when :account_link
-          button = AccountLinkButton.new
+          when :web_url
+            button = WebUrlButton.new
+          when :postback
+            button = PostbackButton.new
+          when :account_link
+            button = AccountLinkButton.new
+          when :phone_number
+            button = PhoneButton.new
+          when :element_share
+            button = ElementShareButton.new
         end
         buttons << button.tap { |button| yield button }
       end
 
       def to_hash
         {
-          title: title,
-          image_url: image_url,
-          subtitle: subtitle,
-          buttons: buttons.collect { |button| button.to_hash }
+            title: title,
+            image_url: image_url,
+            subtitle: subtitle,
+            buttons: buttons.collect { |button| button.to_hash }
         }
       end
 
