@@ -10,7 +10,7 @@ module MessageQuickly
       end
 
       def to_hash
-        { type: type, title: title, payload: payload }
+        { type: type, payload: payload }
       end
 
     end
