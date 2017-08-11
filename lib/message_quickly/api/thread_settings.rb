@@ -90,7 +90,7 @@ module MessageQuickly
       private
 
       def request_string
-        "#{ENV['FACEBOOK_MESSENGER_PAGE_ID']}/thread_settings"
+        "https://graph.facebook.com/#{FB_MESSENGER_VERSION}/me/thread_settings?access_token=#{ENV['FACEBOOK_MESSENGER_PAGE_ACCESS_TOKEN']}"
       end
 
     end
